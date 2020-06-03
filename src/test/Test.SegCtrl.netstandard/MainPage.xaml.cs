@@ -37,6 +37,11 @@ namespace Test.SegmentedControl
             SegmentedControl.BackgroundColor = Color.HotPink;
         }
 
+        private void ButtonBorderColor_OnClicked(object sender, EventArgs e)
+        {
+            SegmentedControl.BorderColor = Color.Crimson;
+        }
+
         private void Disable_OnClicked(object sender, EventArgs e)
         {
             SegmentedControl.IsEnabled = false;
