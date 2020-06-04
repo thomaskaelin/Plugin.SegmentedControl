@@ -7,10 +7,9 @@ param([string]$version)
 
 if ([string]::IsNullOrEmpty($version)) {$version = "0.0.1"}
 
-$msbuild = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe"
+$msbuild = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
 &$msbuild ..\main\SegCtlr.Netstandard\SegCtlr.Netstandard.csproj /t:Build /p:Configuration="Release"
 &$msbuild ..\crossplatform\SegCtrl.Droid\SegCtrl.Droid.csproj /t:Build /p:Configuration="Release"
-&$msbuild ..\crossplatform\SegCtrl.UWP\SegCtrl.UWP.csproj /t:Build /p:Configuration="Release"
 &$msbuild ..\crossplatform\SegCtrl.iOS\SegCtrl.iOS.csproj /t:Build /p:Configuration="Release"
 &$msbuild ..\crossplatform\SegCtrl.macOS\SegCtrl.macOS.csproj /t:Build /p:Configuration="Release"
 
