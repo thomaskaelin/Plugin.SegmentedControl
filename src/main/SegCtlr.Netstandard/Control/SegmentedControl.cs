@@ -102,16 +102,23 @@ namespace Plugin.Segmented.Control
             set => SetValue(DisabledColorProperty, value);
         }
 
-        public static readonly BindableProperty BorderColorProperty = BindableProperty.Create(nameof(BorderColor), typeof(Color?), typeof(SegmentedControl));
+        public static readonly BindableProperty BorderColorProperty = BindableProperty.Create(nameof(BorderColor), typeof(Color), typeof(SegmentedControl), defaultValueCreator: bindable => ((SegmentedControl)bindable).TintColor);
 
-        public Color? BorderColor
+        public Color BorderColor
         {
-            get => (Color?)GetValue(BorderColorProperty);
+            get => (Color)GetValue(BorderColorProperty);
             set => SetValue(BorderColorProperty, value);
         }
 
-        public static readonly BindableProperty SelectedSegmentProperty = BindableProperty.Create(nameof(SelectedSegment), typeof(int), typeof(SegmentedControl), 0);
+        public static readonly BindableProperty BorderWidthProperty = BindableProperty.Create(nameof(BorderWidth), typeof(double), typeof(SegmentedControl), defaultValueCreator: _ => Device.RuntimePlatform == Device.Android ? 1.0 : 0.0);
 
+        public double BorderWidth
+        {
+            get => (double)GetValue(BorderWidthProperty);
+            set => SetValue(BorderWidthProperty, value);
+        }
+
+        public static readonly BindableProperty SelectedSegmentProperty = BindableProperty.Create(nameof(SelectedSegment), typeof(int), typeof(SegmentedControl), 0);
 
         public int SelectedSegment
         {
